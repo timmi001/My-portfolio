@@ -13,134 +13,103 @@ export function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API call
     setTimeout(() => {
       setIsSubmitting(false);
-      toast({
-        title: "Message Sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
-      });
+      toast({ title: "Message Sent!", description: "Thanks for reaching out. I'll get back to you soon." });
       (e.target as HTMLFormElement).reset();
     }, 1500);
   };
 
   const handleDownload = () => {
-    toast({
-      title: "Coming Soon",
-      description: "My updated resume will be available for download shortly.",
-      variant: "default",
-    });
+    toast({ title: "Coming Soon", description: "My updated resume will be available shortly." });
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-primary/5 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black)]"></div>
-      
-      <div className="container mx-auto px-6 max-w-6xl relative z-10">
+    <section id="contact" className="px-4 py-3 pb-24 md:pb-6">
+      <div className="max-w-2xl mx-auto space-y-3">
+        <div className="flex items-center gap-2 px-1">
+          <div className="h-px flex-1 bg-border" />
+          <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Contact</span>
+          <div className="h-px flex-1 bg-border" />
+        </div>
+
+        {/* Contact info card */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.45 }}
+          className="bg-card rounded-2xl border border-border shadow-sm overflow-hidden"
         >
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">Let's Connect</h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Have a project in mind or want to explore an opportunity? I'd love to hear from you.
-          </p>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-8"
-          >
-            <div>
-              <h3 className="text-2xl font-bold mb-4">Contact Information</h3>
-              <p className="text-muted-foreground mb-8">
-                I'm currently based in Lagos, open to remote opportunities globally. Feel free to reach out via email or any of my social profiles.
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              <div className="flex items-center gap-4 text-foreground group">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                  <Mail className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-muted-foreground">Email</p>
-                  <p className="font-semibold">hello@timileyin.dev</p>
-                </div>
+          <div className="flex items-center gap-2 px-5 pt-4 pb-3 border-b border-border">
+            <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-100 dark:bg-blue-950/40 text-blue-700 dark:text-blue-400">Let's Connect</span>
+          </div>
+          <div className="px-5 py-4 space-y-3">
+            <p className="text-sm text-muted-foreground">
+              I'm currently based in Lagos, open to remote opportunities globally.
+            </p>
+            <div className="flex items-center gap-3 text-sm">
+              <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <Mail className="h-3.5 w-3.5 text-primary" />
               </div>
-              <div className="flex items-center gap-4 text-foreground group">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                  <MapPin className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-muted-foreground">Location</p>
-                  <p className="font-semibold">Lagos, Nigeria</p>
-                </div>
-              </div>
+              <span className="font-medium text-foreground">hello@timileyin.dev</span>
             </div>
-
-            <div className="pt-8">
-              <p className="text-sm font-medium text-muted-foreground mb-4 uppercase tracking-wider">Social Profiles</p>
-              <div className="flex gap-4">
-                <Button variant="outline" size="icon" className="rounded-full hover:border-primary hover:text-primary">
-                  <Github className="h-5 w-5" />
-                </Button>
-                <Button variant="outline" size="icon" className="rounded-full hover:border-primary hover:text-primary">
-                  <Linkedin className="h-5 w-5" />
-                </Button>
-                <Button variant="outline" size="icon" className="rounded-full hover:border-primary hover:text-primary">
-                  <Twitter className="h-5 w-5" />
-                </Button>
+            <div className="flex items-center gap-3 text-sm">
+              <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <MapPin className="h-3.5 w-3.5 text-primary" />
               </div>
+              <span className="font-medium text-foreground">Lagos, Nigeria</span>
             </div>
-
-            <div className="pt-4">
-              <Button onClick={handleDownload} variant="secondary" className="w-full sm:w-auto">
-                <Download className="mr-2 h-4 w-4" />
-                Download Resume
+            {/* Social links */}
+            <div className="flex items-center gap-2 pt-1">
+              {[Github, Linkedin, Twitter].map((Icon, i) => (
+                <Button key={i} variant="outline" size="icon" className="rounded-full w-9 h-9 hover:border-primary hover:text-primary">
+                  <Icon className="h-4 w-4" />
+                </Button>
+              ))}
+              <Button onClick={handleDownload} variant="outline" size="sm" className="ml-auto h-9 text-xs">
+                <Download className="h-3.5 w-3.5 mr-1.5" />
+                Resume
               </Button>
             </div>
-          </motion.div>
+          </div>
+        </motion.div>
 
-          {/* Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="bg-card p-8 rounded-3xl border border-border shadow-xl">
-              <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground">Name</label>
-                  <Input required placeholder="Your full name" className="bg-background/50 h-12" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground">Email</label>
-                  <Input required type="email" placeholder="you@example.com" className="bg-background/50 h-12" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground">Message</label>
-                  <Textarea required placeholder="How can I help you?" className="bg-background/50 min-h-[150px] resize-none" />
-                </div>
-                <Button disabled={isSubmitting} className="w-full h-12 text-base font-semibold bg-primary hover:bg-primary/90 text-primary-foreground">
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                </Button>
-              </form>
-            </div>
-          </motion.div>
-        </div>
+        {/* Form card */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.45, delay: 0.1 }}
+          className="bg-card rounded-2xl border border-border shadow-sm overflow-hidden"
+        >
+          <div className="flex items-center gap-2 px-5 pt-4 pb-3 border-b border-border">
+            <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-green-100 dark:bg-green-950/40 text-green-700 dark:text-green-400">Send a Message</span>
+          </div>
+          <div className="px-5 py-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="space-y-1.5">
+                <label className="text-xs font-semibold text-foreground">Name</label>
+                <Input required placeholder="Your full name" className="h-10 text-sm" data-testid="input-name" />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-semibold text-foreground">Email</label>
+                <Input required type="email" placeholder="you@example.com" className="h-10 text-sm" data-testid="input-email" />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-semibold text-foreground">Message</label>
+                <Textarea required placeholder="How can I help you?" className="text-sm min-h-[120px] resize-none" data-testid="input-message" />
+              </div>
+              <Button
+                disabled={isSubmitting}
+                className="w-full h-10 text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90"
+                data-testid="button-send"
+              >
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </Button>
+            </form>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

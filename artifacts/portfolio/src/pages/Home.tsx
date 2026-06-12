@@ -8,12 +8,13 @@ import { GithubStats } from "@/components/sections/GithubStats";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
+import { BottomNav } from "@/components/sections/BottomNav";
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full bg-background text-foreground selection:bg-primary/30 scroll-smooth">
+    <div className="min-h-screen w-full bg-background text-foreground">
       <Navbar />
-      <main>
+      <main className="scroll-smooth">
         <Hero />
         <About />
         <Projects />
@@ -24,6 +25,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <BottomNav />
     </div>
   );
 }
