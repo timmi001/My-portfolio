@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Github, Linkedin, Twitter, Mail, MapPin, Download } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Download } from "lucide-react";
 
 export function Contact() {
   const { toast } = useToast();
@@ -101,8 +101,10 @@ export function Contact() {
                     <Linkedin className="h-5 w-5" />
                   </a>
                 </Button>
-                <Button variant="outline" size="icon" className="rounded-full hover:border-primary hover:text-primary">
-                  <Twitter className="h-5 w-5" />
+                <Button variant="outline" size="icon" className="rounded-full hover:border-primary hover:text-primary" asChild>
+                  <a href="mailto:adekunlete@gmail.com">
+                    <Mail className="h-5 w-5" />
+                  </a>
                 </Button>
               </div>
             </div>

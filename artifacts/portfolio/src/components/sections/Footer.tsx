@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 
 export function Footer() {
   return (
@@ -16,8 +16,6 @@ export function Footer() {
         <div className="flex items-center gap-4 text-muted-foreground">
           <a href="https://github.com/timmi001" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors"><Github className="h-5 w-5" /></a>
           <a href="https://www.linkedin.com/in/timi-adekunle-b43170385" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors"><Linkedin className="h-5 w-5" /></a>
-          <a href="#" className="hover:text-foreground transition-colors"><Twitter className="h-5 w-5" /></a>
-          <a href="mailto:adekunlete@gmail.com" className="hover:text-foreground transition-colors"><Mail className="h-5 w-5" /></a>
         </div>
         
         <p className="text-sm text-muted-foreground">
