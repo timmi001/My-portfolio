@@ -33,7 +33,6 @@ export function GithubStats() {
   const repos = [
     { name: "OPrice NG", desc: "Marketplace comparison platform", lang: "TypeScript", stars: 24, forks: 8 },
     { name: "Luna IQ", desc: "AI-powered wellness application", lang: "JavaScript", stars: 18, forks: 5 },
-    { name: "Sports Tools", desc: "Sports statistics and insights", lang: "TypeScript", stars: 12, forks: 3 },
   ];
 
   return (
@@ -73,7 +72,7 @@ export function GithubStats() {
               </div>
               <div className="ml-auto text-right hidden sm:block">
                 <div className="text-sm text-muted-foreground">Total Contributions</div>
-                <div className="text-2xl font-bold text-foreground">500+</div>
+                <div className="text-2xl font-bold text-foreground">50+</div>
               </div>
             </div>
 
