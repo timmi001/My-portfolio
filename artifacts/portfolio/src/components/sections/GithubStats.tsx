@@ -72,7 +72,7 @@ export function GithubStats() {
               </div>
               <div className="ml-auto text-right hidden sm:block">
                 <div className="text-sm text-muted-foreground">Total Contributions</div>
-                <div className="text-2xl font-bold text-foreground">50+</div>
+                <div className="text-2xl font-bold text-foreground">5+</div>
               </div>
             </div>
 

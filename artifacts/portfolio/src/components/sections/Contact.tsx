@@ -26,11 +26,10 @@ export function Contact() {
   };
 
   const handleDownload = () => {
-    toast({
-      title: "Coming Soon",
-      description: "My updated resume will be available for download shortly.",
-      variant: "default",
-    });
+    const link = document.createElement("a");
+    link.href = "/Timileyin-Adekunle-Resume.docx";
+    link.download = "Timileyin-Adekunle-Resume.docx";
+    link.click();
   };
 
   return (
