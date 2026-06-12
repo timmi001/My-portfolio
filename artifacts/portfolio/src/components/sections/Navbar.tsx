@@ -1,64 +1,122 @@
-import { useState } from "react";
-import { Moon, Sun } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Moon, Sun, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/components/theme-provider";
 
 export function Navbar() {
   const { theme, setTheme } = useTheme();
-  const [active, setActive] = useState("for-you");
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const chips = [
-    { id: "for-you", label: "For You", href: "#" },
-    { id: "about", label: "About", href: "#about" },
-    { id: "projects", label: "Projects", href: "#projects" },
-    { id: "skills", label: "Skills", href: "#skills" },
-    { id: "experience", label: "Experience", href: "#experience" },
-    { id: "github", label: "GitHub", href: "#github" },
-    { id: "contact", label: "Contact", href: "#contact" },
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: "About", href: "#about" },
+    { name: "Projects", href: "#projects" },
+    { name: "Skills", href: "#skills" },
+    { name: "Experience", href: "#experience" },
+    { name: "Contact", href: "#contact" },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-card border-b border-border shadow-sm">
-      {/* Top bar */}
-      <div className="flex items-center justify-between px-4 h-14">
-        {/* Left: avatar + wordmark */}
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
-            <span className="text-xs font-black text-white">TA</span>
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm py-3"
+          : "bg-transparent py-5"
+      }`}
+    >
+      <div className="container mx-auto px-6 flex items-center justify-between">
+        <a
+          href="#"
+          className="font-bold text-2xl tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent relative z-10"
+        >
+          TA
+        </a>
+
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-8">
+          <div className="flex items-center gap-6 text-sm font-medium">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-muted-foreground hover:text-foreground transition-colors relative group"
+              >
+                {link.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+              </a>
+            ))}
           </div>
-          <span className="font-semibold text-sm text-foreground hidden sm:block">Timileyin Adekunle</span>
+          <div className="flex items-center gap-4 border-l border-border pl-6">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="rounded-full hover:bg-primary/10 hover:text-primary transition-colors"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            >
+              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              <span className="sr-only">Toggle theme</span>
+            </Button>
+          </div>
         </div>
 
-        {/* Right: theme toggle */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="rounded-full w-9 h-9"
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          data-testid="button-theme-toggle"
-        >
-          {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-        </Button>
+        {/* Mobile Toggle */}
+        <div className="md:hidden flex items-center gap-4 relative z-10">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="rounded-full hover:bg-primary/10 hover:text-primary transition-colors"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          >
+            {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </Button>
+        </div>
       </div>
 
-      {/* Topic chips row */}
-      <div className="flex gap-2 px-4 pb-3 overflow-x-auto scrollbar-hide">
-        {chips.map((chip) => (
-          <a
-            key={chip.id}
-            href={chip.href}
-            onClick={() => setActive(chip.id)}
-            data-testid={`chip-${chip.id}`}
-            className={`flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
-              active === chip.id
-                ? "bg-primary text-primary-foreground shadow-sm"
-                : "bg-secondary text-secondary-foreground hover:bg-muted"
-            }`}
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "100vh" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-background/95 backdrop-blur-xl md:hidden flex flex-col items-center justify-center gap-8 pt-16 z-0"
           >
-            {chip.label}
-          </a>
-        ))}
-      </div>
-    </header>
+            {navLinks.map((link, i) => (
+              <motion.a
+                key={link.name}
+                href={link.href}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 * i }}
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-2xl font-bold tracking-tight hover:text-primary transition-colors"
+              >
+                {link.name}
+              </motion.a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 }

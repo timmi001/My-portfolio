@@ -1,117 +1,106 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github } from "lucide-react";
-
-const projects = [
-  {
-    title: "OPrice NG",
-    description: "Marketplace platform helping users compare prices across sellers and discover the best deals in Nigeria.",
-    features: ["Product comparison", "Seller profiles", "Location-based search"],
-    tech: ["React", "TypeScript", "Tailwind", "Supabase"],
-    gradient: "from-blue-500 to-violet-600",
-    chip: { label: "Marketplace", color: "bg-blue-100 dark:bg-blue-950/40 text-blue-700 dark:text-blue-400" },
-    pattern: "grid",
-  },
-  {
-    title: "Luna IQ",
-    description: "AI-powered women's wellness and femtech platform with personalized cycle tracking and health insights.",
-    features: ["Cycle tracking", "Wellness insights", "AI assistant"],
-    tech: ["React", "Node.js", "PostgreSQL", "OpenAI"],
-    gradient: "from-violet-500 to-pink-600",
-    chip: { label: "AI · Health", color: "bg-purple-100 dark:bg-purple-950/40 text-purple-700 dark:text-purple-400" },
-    pattern: "dots",
-  },
-  {
-    title: "Sports Tools",
-    description: "Collection of sports-related web tools and utilities for statistics, team comparison, and match insights.",
-    features: ["Statistics", "Team comparison", "Match insights"],
-    tech: ["Next.js", "React", "APIs"],
-    gradient: "from-cyan-500 to-blue-600",
-    chip: { label: "Sports · Tools", color: "bg-cyan-100 dark:bg-cyan-950/40 text-cyan-700 dark:text-cyan-400" },
-    pattern: "lines",
-  },
-];
-
-const patternStyles: Record<string, string> = {
-  grid: "radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px)",
-  dots: "radial-gradient(circle, rgba(255,255,255,0.2) 1.5px, transparent 1.5px)",
-  lines: "repeating-linear-gradient(45deg, rgba(255,255,255,0.08) 0px, rgba(255,255,255,0.08) 1px, transparent 1px, transparent 12px)",
-};
+import { ExternalLink, Github, CheckCircle2 } from "lucide-react";
 
 export function Projects() {
+  const projects = [
+    {
+      title: "OPrice NG",
+      description: "Marketplace platform helping users compare prices across sellers and discover the best deals.",
+      features: ["Product comparison", "Marketplace listings", "Seller profiles", "Location-based search", "Mobile-first design"],
+      tech: ["React", "TypeScript", "Tailwind", "Supabase"],
+      gradient: "from-blue-600 to-purple-600",
+      shadow: "hover:shadow-blue-500/20",
+    },
+    {
+      title: "Luna IQ",
+      description: "AI-powered women's wellness and femtech platform.",
+      features: ["Cycle tracking", "Wellness insights", "Personalized recommendations", "AI assistant"],
+      tech: ["React", "Node.js", "PostgreSQL", "OpenAI"],
+      gradient: "from-purple-600 to-pink-600",
+      shadow: "hover:shadow-purple-500/20",
+    },
+    {
+      title: "Sports Tools Platform",
+      description: "Collection of sports-related web tools and utilities.",
+      features: ["Statistics", "Team comparison", "Match insights", "Mobile optimized"],
+      tech: ["Next.js", "React", "APIs"],
+      gradient: "from-blue-500 to-cyan-500",
+      shadow: "hover:shadow-cyan-500/20",
+    }
+  ];
+
   return (
-    <section id="projects" className="px-4 py-3">
-      <div className="max-w-2xl mx-auto space-y-3">
-        {/* Section label */}
-        <div className="flex items-center gap-2 px-1">
-          <div className="h-px flex-1 bg-border" />
-          <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Featured Projects</span>
-          <div className="h-px flex-1 bg-border" />
-        </div>
+    <section id="projects" className="py-24 md:py-32 bg-card/30">
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16 md:mb-24"
+        >
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">Featured Projects</h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            A selection of my recent work. I build platforms that are fast, accessible, and user-friendly.
+          </p>
+        </motion.div>
 
-        {projects.map((project, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.45, delay: index * 0.07 }}
-            className="bg-card rounded-2xl border border-border shadow-sm overflow-hidden"
-            data-testid={`card-project-${index}`}
-          >
-            {/* Discover-style: image thumbnail on right, text on left */}
-            <div className="flex">
-              {/* Left: text content */}
-              <div className="flex-1 p-5 min-w-0">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${project.chip.color}`}>
-                    {project.chip.label}
-                  </span>
+        <div className="grid lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className={`group flex flex-col rounded-3xl border border-border bg-card overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${project.shadow}`}
+            >
+              {/* Graphic Banner */}
+              <div className={`h-48 md:h-56 relative overflow-hidden bg-gradient-to-br ${project.gradient}`}>
+                <div className="absolute inset-0 opacity-20 mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIi8+PC9zdmc+')] [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <h3 className="absolute bottom-6 left-6 text-3xl font-black text-white">{project.title}</h3>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 md:p-8 flex flex-col flex-grow">
+                <p className="text-muted-foreground mb-6 line-clamp-2">{project.description}</p>
+                
+                <div className="mb-8 flex-grow">
+                  <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground mb-3">Key Features</h4>
+                  <ul className="space-y-2">
+                    {project.features.map((feature, i) => (
+                      <li key={i} className="flex items-start text-sm text-muted-foreground">
+                        <CheckCircle2 className="h-4 w-4 text-primary mr-2 mt-0.5 shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h3 className="text-base font-bold text-foreground leading-snug mb-1">{project.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 mb-3">{project.description}</p>
 
-                {/* Tech tags */}
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                  {project.tech.map((t) => (
-                    <span key={t} className="text-xs px-2 py-0.5 rounded-md bg-secondary text-secondary-foreground font-medium">
-                      {t}
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {project.tech.map((tech, i) => (
+                    <span key={i} className="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">
+                      {tech}
                     </span>
                   ))}
                 </div>
 
-                {/* Actions */}
-                <div className="flex gap-2">
-                  <Button size="sm" className="h-8 text-xs px-3 bg-primary text-primary-foreground hover:bg-primary/90">
-                    <ExternalLink className="h-3 w-3 mr-1" />
-                    Demo
+                <div className="grid grid-cols-2 gap-4 mt-auto pt-6 border-t border-border">
+                  <Button variant="default" className="w-full group/btn">
+                    Live Demo
+                    <ExternalLink className="ml-2 h-4 w-4 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5 transition-transform" />
                   </Button>
-                  <Button size="sm" variant="outline" className="h-8 text-xs px-3">
-                    <Github className="h-3 w-3 mr-1" />
-                    Code
+                  <Button variant="outline" className="w-full group/btn">
+                    GitHub
+                    <Github className="ml-2 h-4 w-4 group-hover/btn:rotate-12 transition-transform" />
                   </Button>
                 </div>
               </div>
-
-              {/* Right: gradient thumbnail */}
-              <div className={`w-28 sm:w-36 flex-shrink-0 bg-gradient-to-br ${project.gradient} relative`}>
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    backgroundImage: patternStyles[project.pattern],
-                    backgroundSize: project.pattern === "grid" || project.pattern === "dots" ? "20px 20px" : undefined,
-                  }}
-                />
-                {/* Feature list overlay */}
-                <div className="absolute inset-0 flex flex-col justify-end p-2 pb-3">
-                  {project.features.slice(0, 2).map((f) => (
-                    <span key={f} className="text-[10px] text-white/80 font-medium leading-tight">{f}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
