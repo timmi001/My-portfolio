@@ -1,0 +1,283 @@
+Use this prompt in Replit,
+
+⸻
+
+Prompt:
+
+Create a modern, premium personal portfolio website for Timileyin Adekunle, a Frontend Developer, UI Engineer, and Full-Stack Enthusiast based in Lagos, Nigeria.
+
+Design Style
+
+2026 modern SaaS aesthetic
+Inspired by Linear, Stripe, Vercel, and Framer
+Clean typography
+Dark mode by default with light mode toggle
+Smooth animations and micro-interactions
+Fully responsive (mobile, tablet, desktop)
+Professional developer portfolio suitable for recruiters and clients
+Fast loading and SEO optimized
+
+Color System
+
+Dark Mode:
+
+Background: #0B0F19
+Surface: #111827
+Primary: #3B82F6
+Accent: #8B5CF6
+Text: White
+
+Light Mode:
+
+Background: White
+Surface: #F8FAFC
+Primary: #2563EB
+Accent: #7C3AED
+Text: #0F172A
+
+⸻
+
+Hero Section
+
+Large headline:
+
+Frontend Developer Building Modern Web Experiences
+
+Subheadline:
+
+“I design and build fast, scalable, and user-focused web applications using modern technologies and AI-powered workflows.”
+
+CTA Buttons:
+
+View Projects
+Contact Me
+
+Display:
+
+Professional developer illustration
+Floating technology badges
+Animated background effects
+
+Tech Stack Pills:
+
+React
+Next.js
+TypeScript
+Tailwind CSS
+Node.js
+Express
+PostgreSQL
+Firebase
+GitHub
+Vercel
+
+⸻
+
+About Section
+
+Title:
+About Me
+
+Content:
+
+“I am a frontend developer focused on creating intuitive, responsive, and high-performance web applications. I enjoy transforming ideas into products that solve real-world problems through clean UI design and scalable engineering.”
+
+Add:
+
+Years of experience
+Projects completed
+Technologies mastered
+GitHub contributions
+
+Display statistics cards.
+
+⸻
+
+Featured Projects Section
+
+Create beautiful project showcase cards.
+
+Project 1 — O’Price NG
+
+Marketplace platform helping users compare prices across sellers and discover the best deals.
+
+Features:
+
+Product comparison
+Marketplace listings
+Seller profiles
+Location-based search
+Mobile-first design
+
+Tech:
+React, TypeScript, Tailwind, Supabase
+
+⸻
+
+Project 2 — Luna IQ
+
+AI-powered women’s wellness and femtech platform.
+
+Features:
+
+Cycle tracking
+Wellness insights
+Personalized recommendations
+AI assistant
+
+Tech:
+React, Node.js, PostgreSQL, OpenAI
+
+⸻
+
+Project 3 — Sports Tools Platform
+
+Collection of sports-related web tools and utilities.
+
+Features:
+
+Statistics
+Team comparison
+Match insights
+Mobile optimized
+
+Tech:
+Next.js, React, APIs
+
+⸻
+
+Each project card should contain:
+
+Large screenshot
+Description
+Technology badges
+Live Demo button
+GitHub button
+
+Add hover animations.
+
+⸻
+
+Skills Section
+
+Create categorized skill cards.
+
+Frontend
+
+React
+Next.js
+JavaScript
+TypeScript
+Tailwind CSS
+HTML5
+CSS3
+
+Backend
+
+Node.js
+Express
+REST APIs
+Firebase
+Supabase
+
+Tools
+
+Git
+GitHub
+Vercel
+Figma
+Replit
+Cursor AI
+
+Display skills with animated progress indicators.
+
+⸻
+
+Experience Section
+
+Timeline layout.
+
+Frontend Developer
+
+Building modern web applications and marketplace platforms.
+
+Freelance Developer
+
+Developing responsive websites and custom web applications for clients.
+
+Personal Projects
+
+Building AI tools, marketplaces, sports platforms, and productivity applications.
+
+⸻
+
+GitHub Section
+
+Display:
+
+GitHub profile
+Contribution graph
+Repository cards
+Coding statistics
+
+Include a GitHub API integration.
+
+⸻
+
+Testimonials Section
+
+Modern card layout ready for future client testimonials.
+
+⸻
+
+Contact Section
+
+Contact form:
+
+Name
+Email
+Message
+
+Buttons:
+
+Send Message
+Download Resume
+
+Social Links:
+
+GitHub
+LinkedIn
+X (Twitter)
+Email
+
+⸻
+
+Footer
+
+Display:
+
+Timileyin Adekunle
+Frontend Developer
+Copyright
+Social Icons
+
+⸻
+
+Technical Requirements
+
+Next.js 15
+TypeScript
+Tailwind CSS
+Framer Motion
+Responsive design
+SEO optimization
+Dark/light mode
+Smooth page transitions
+Accessibility compliant
+Performance score above 90
+
+Create a polished portfolio that looks like it was designed by a senior product designer and frontend engineer, suitable for landing frontend developer jobs and freelance opportunities in 2026.
+
+⸻
+
+This will give you a portfolio that feels much more premium and recruiter-ready than a typical template.
