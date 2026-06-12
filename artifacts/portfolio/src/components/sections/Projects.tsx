@@ -11,6 +11,8 @@ export function Projects() {
       tech: ["React", "TypeScript", "Tailwind", "Supabase"],
       gradient: "from-blue-600 to-purple-600",
       shadow: "hover:shadow-blue-500/20",
+      liveUrl: "#",
+      githubUrl: "https://github.com/timmi001",
     },
     {
       title: "Luna IQ",
@@ -19,14 +21,8 @@ export function Projects() {
       tech: ["React", "Node.js", "PostgreSQL", "OpenAI"],
       gradient: "from-purple-600 to-pink-600",
       shadow: "hover:shadow-purple-500/20",
-    },
-    {
-      title: "Sports Tools Platform",
-      description: "Collection of sports-related web tools and utilities.",
-      features: ["Statistics", "Team comparison", "Match insights", "Mobile optimized"],
-      tech: ["Next.js", "React", "APIs"],
-      gradient: "from-blue-500 to-cyan-500",
-      shadow: "hover:shadow-cyan-500/20",
+      liveUrl: "https://luna-iq.vercel.app",
+      githubUrl: "https://github.com/timmi001",
     }
   ];
 
@@ -88,13 +84,17 @@ export function Projects() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 mt-auto pt-6 border-t border-border">
-                  <Button variant="default" className="w-full group/btn">
-                    Live Demo
-                    <ExternalLink className="ml-2 h-4 w-4 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5 transition-transform" />
+                  <Button variant="default" className="w-full group/btn" asChild>
+                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                      Live Demo
+                      <ExternalLink className="ml-2 h-4 w-4 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5 transition-transform" />
+                    </a>
                   </Button>
-                  <Button variant="outline" className="w-full group/btn">
-                    GitHub
-                    <Github className="ml-2 h-4 w-4 group-hover/btn:rotate-12 transition-transform" />
+                  <Button variant="outline" className="w-full group/btn" asChild>
+                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                      GitHub
+                      <Github className="ml-2 h-4 w-4 group-hover/btn:rotate-12 transition-transform" />
+                    </a>
                   </Button>
                 </div>
               </div>

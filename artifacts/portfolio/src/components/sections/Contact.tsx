@@ -75,7 +75,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-muted-foreground">Email</p>
-                  <p className="font-semibold">hello@timileyin.dev</p>
+                  <p className="font-semibold">adekunlete@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-center gap-4 text-foreground group">
@@ -92,11 +92,15 @@ export function Contact() {
             <div className="pt-8">
               <p className="text-sm font-medium text-muted-foreground mb-4 uppercase tracking-wider">Social Profiles</p>
               <div className="flex gap-4">
-                <Button variant="outline" size="icon" className="rounded-full hover:border-primary hover:text-primary">
-                  <Github className="h-5 w-5" />
+                <Button variant="outline" size="icon" className="rounded-full hover:border-primary hover:text-primary" asChild>
+                  <a href="https://github.com/timmi001" target="_blank" rel="noopener noreferrer">
+                    <Github className="h-5 w-5" />
+                  </a>
                 </Button>
-                <Button variant="outline" size="icon" className="rounded-full hover:border-primary hover:text-primary">
-                  <Linkedin className="h-5 w-5" />
+                <Button variant="outline" size="icon" className="rounded-full hover:border-primary hover:text-primary" asChild>
+                  <a href="https://www.linkedin.com/in/timi-adekunle-b43170385" target="_blank" rel="noopener noreferrer">
+                    <Linkedin className="h-5 w-5" />
+                  </a>
                 </Button>
                 <Button variant="outline" size="icon" className="rounded-full hover:border-primary hover:text-primary">
                   <Twitter className="h-5 w-5" />

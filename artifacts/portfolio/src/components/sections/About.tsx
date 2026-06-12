@@ -62,9 +62,9 @@ export function About() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           <Counter value={3} label="Years Experience" />
-          <Counter value={20} label="Projects Completed" />
+          <Counter value={10} label="Projects Completed" />
           <Counter value={10} label="Technologies Mastered" />
-          <Counter value={500} label="GitHub Contributions" />
+          <Counter value={50} label="GitHub Contributions" />
         </motion.div>
       </div>
     </section>

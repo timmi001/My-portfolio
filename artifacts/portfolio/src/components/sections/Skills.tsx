@@ -34,6 +34,7 @@ export function Skills() {
         { name: "Figma", icon: SiFigma, color: "text-[#F24E1E]" },
         { name: "Replit", icon: SiReplit, color: "text-[#F26207]" },
         { name: "Cursor AI", icon: null, color: "text-accent" },
+        { name: "VS Code", icon: null, color: "text-[#007ACC]" },
       ]
     }
   ];
