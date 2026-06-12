@@ -41,7 +41,7 @@ export function Navbar() {
           href="#"
           className="font-bold text-2xl tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent relative z-10"
         >
-          TA
+          TIMILEYIN ADEKUNLE
         </a>
 
         {/* Desktop Nav */}
