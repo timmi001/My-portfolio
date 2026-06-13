@@ -11,7 +11,7 @@ export function Projects() {
       tech: ["React", "TypeScript", "Tailwind", "Supabase"],
       gradient: "from-blue-600 to-purple-600",
       shadow: "hover:shadow-blue-500/20",
-      liveUrl: "https://5d136e77-16ae-4d07-b161-f38ed85c5f43-00-30fvact1788uu.riker.replit.dev",
+      liveUrl: "https://zero-price-ng.vercel.app",
       githubUrl: "https://github.com/timmi001",
     },
     {
